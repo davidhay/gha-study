@@ -7,13 +7,25 @@ jobs:
         steps:
             - name: lint
               run: echo "linting..."
+            - name: checkout
+              uses: actions/checkout@v3
+            - name: init npm
+              run: npm ci
+            - name: init npm
+              run: npm run lint
     test:
         name: test
         needs: lint
         runs-on: ubuntu-22.04
         steps:
-            - name: lint
+            - name: test
               run: echo "testing..."
+            - name: checkout
+              uses: actions/checkout@v3
+            - name: init npm
+              run: npm ci
+            - name: run test
+              run: npm run test
     deploy:
         name: deploy
         needs: test
@@ -21,3 +33,12 @@ jobs:
         steps:
             - name: deploy
               run: echo "deploying..."
+            - name: checkout
+              uses: actions/checkout@v3
+            - name: init npm
+              run: npm ci
+            - name: build
+              run: npm run build
+            - name: deploy
+              run: echo "fake deploy!"
+
