@@ -2,7 +2,9 @@ name: my-first-action
 on: push
 jobs:
     job1:
+        name: job1
         runs-on: ubuntu-22.04
         steps:
             - name: step1
               run: echo "hello"
+
