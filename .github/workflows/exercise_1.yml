@@ -1,0 +1,23 @@
+name: my-second-action
+on: push
+jobs:
+    lint:
+        name: lint
+        runs-on: ubuntu-22.04
+        steps:
+            - name: lint
+              run: echo "linting..."
+    test:
+        name: test
+        needs: lint
+        runs-on: ubuntu-22.04
+        steps:
+            - name: lint
+              run: echo "testing..."
+    deploy:
+        name: deploy
+        needs: test
+        runs-on: ubuntu-22.04
+        steps:
+            - name: deploy
+              run: echo "deploying..."
