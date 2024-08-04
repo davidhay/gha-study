@@ -1,0 +1,8 @@
+name: echo issues event
+on: issues
+jobs:
+    context:
+        runs-on: ubuntu-latest
+        steps:
+            - name: "echo event"
+              run: echo "hello there"
